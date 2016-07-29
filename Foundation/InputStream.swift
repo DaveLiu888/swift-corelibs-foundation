@@ -207,7 +207,7 @@ public struct InputStream: ReferenceConvertible, CustomStringConvertible, Equata
 }
 
 public func === (lhs: InputStream, rhs: InputStream) -> Bool {
-    return lhs._mapUnmanaged{ unsafeAddress(of: $0) } == rhs._mapUnmanaged{ unsafeAddress(of: $0) }
+    return lhs._mapUnmanaged{ Unmanaged.passRetained($0).toOpaque() } == rhs._mapUnmanaged{ Unmanaged.passRetained($0).toOpaque() }
 }
 
 public func ==(lhs : InputStream, rhs : InputStream) -> Bool {

@@ -144,8 +144,8 @@ class TestNSStream : XCTestCase {
         XCTAssertEqual(NSStream.Status.notOpen, dataStream.streamStatus)
         dataStream.open()
         XCTAssertEqual(NSStream.Status.open, dataStream.streamStatus)
-        let buffer = UnsafeMutablePointer<UnsafeMutablePointer<UInt8>?>(allocatingCapacity: 1)
-        let ptr = UnsafeMutablePointer<Int>(allocatingCapacity:1)
+        let buffer = UnsafeMutablePointer<UnsafeMutablePointer<UInt8>?>.allocate(capacity: 1)
+        let ptr = UnsafeMutablePointer<Int>.allocate(capacity: 1)
         let gotBuffer = dataStream.getBuffer(buffer, length:ptr)
         
         XCTAssertTrue(gotBuffer)
@@ -164,8 +164,8 @@ class TestNSStream : XCTestCase {
             XCTAssertEqual(NSStream.Status.notOpen, fileStream.streamStatus)
             fileStream.open()
             XCTAssertEqual(NSStream.Status.open, fileStream.streamStatus)
-            let buffer = UnsafeMutablePointer<UnsafeMutablePointer<UInt8>?>(allocatingCapacity: 1)
-            let ptr = UnsafeMutablePointer<Int>(allocatingCapacity:1)
+            let buffer = UnsafeMutablePointer<UnsafeMutablePointer<UInt8>?>.allocate(capacity: 1)
+            let ptr = UnsafeMutablePointer<Int>.allocate(capacity: 1)
             let gotBuffer = fileStream.getBuffer(buffer, length:ptr)
             XCTAssertFalse(gotBuffer)
             removeTestFile(testFile!)
@@ -231,7 +231,7 @@ class TestNSStream : XCTestCase {
         //Get: Success case
         let didGetShouldNotBeNil = fileStream.propertyForKey(inputStreamSetProperty_validKey)
         XCTAssertNotNil(didGetShouldNotBeNil)
-        XCTAssertTrue(1._bridgeToObject() == didGetShouldNotBeNil as! NSNumber)
+        XCTAssertTrue(1 as! NSNumber == didGetShouldNotBeNil as! NSNumber)
     }
     
     func test_outputStreamCreationToFile() {

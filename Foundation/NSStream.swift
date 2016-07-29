@@ -215,7 +215,8 @@ public class NSInputStream: NSStream, NSMutableCopying, NSCopying {
     }
     
     public override func setProperty(_ property: AnyObject?, forKey key: String) -> Bool {
-        return CFReadStreamSetProperty(_stream, key._cfObject, property)
+        return CFReadStreamSetProperty(_stream, key._cfObject, property as CFTypeRef)
+        
     }
     
     public override func propertyForKey(_ key: String) -> AnyObject? {
@@ -351,7 +352,7 @@ public class NSOutputStream : NSStream , NSCopying, NSMutableCopying{
     }
     
     public  override func setProperty(_ property: AnyObject?, forKey key: String) -> Bool {
-        return CFWriteStreamSetProperty(_stream, key._cfObject, property)
+        return CFWriteStreamSetProperty(_stream, key._cfObject, property as CFTypeRef)
     }
     
     public override func propertyForKey(_ key: String) -> AnyObject? {
