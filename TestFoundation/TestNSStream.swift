@@ -224,7 +224,7 @@ class TestNSStream : XCTestCase {
         
         //Set: success case
         let inputStreamSetProperty_validKey = "kCFStreamPropertyFileCurrentOffset"
-        let didSetShouldSucceed = fileStream.setProperty(1._bridgeToObject(), forKey:inputStreamSetProperty_validKey)
+        let didSetShouldSucceed = fileStream.setProperty(1 as NSNumber, forKey:inputStreamSetProperty_validKey)
         XCTAssertTrue(didSetShouldSucceed)
         
         

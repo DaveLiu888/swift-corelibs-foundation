@@ -215,7 +215,8 @@ public class NSInputStream: NSStream, NSMutableCopying, NSCopying {
     }
     
     public override func setProperty(_ property: AnyObject?, forKey key: String) -> Bool {
-        return CFReadStreamSetProperty(_stream, key._cfObject, property as CFTypeRef)
+        guard let property = property else { return false }
+        return CFReadStreamSetProperty(_stream, key._cfObject, property)
         
     }
     
@@ -231,6 +232,12 @@ public class NSInputStream: NSStream, NSMutableCopying, NSCopying {
         } else {
             NSRequiresConcreteImplementation()
         }
+    }
+    
+    deinit {
+        _url = nil
+        _data = nil
+        _stream = nil
     }
     
     public func mutableCopy(with zone: NSZone?) -> AnyObject{
@@ -352,7 +359,8 @@ public class NSOutputStream : NSStream , NSCopying, NSMutableCopying{
     }
     
     public  override func setProperty(_ property: AnyObject?, forKey key: String) -> Bool {
-        return CFWriteStreamSetProperty(_stream, key._cfObject, property as CFTypeRef)
+        guard let property = property else { return false }
+        return CFWriteStreamSetProperty(_stream, key._cfObject, property)
     }
     
     public override func propertyForKey(_ key: String) -> AnyObject? {
