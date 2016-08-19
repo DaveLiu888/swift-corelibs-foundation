@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0383A1751D2E558A0052E5D1 /* TestNSStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0383A1741D2E558A0052E5D1 /* TestNSStream.swift */; };
 		294E3C1D1CC5E19300E4F44C /* TestNSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294E3C1C1CC5E19300E4F44C /* TestNSAttributedString.swift */; };
+		2C52BB491D66963900427E48 /* CFUnitFormatter.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C52BB471D66963900427E48 /* CFUnitFormatter.c */; };
+		2C52BB4A1D66963900427E48 /* CFUnitFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C52BB481D66963900427E48 /* CFUnitFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C52BB4C1D66C61C00427E48 /* CFNumberFormatterInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C52BB4B1D66C61C00427E48 /* CFNumberFormatterInternal.h */; };
 		2EBE67A51C77BF0E006583D5 /* TestNSDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBE67A31C77BF05006583D5 /* TestNSDateFormatter.swift */; };
 		528776141BF2629700CB0090 /* FoundationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522C253A1BF16E1600804FC6 /* FoundationErrors.swift */; };
 		528776191BF27D9500CB0090 /* Test.plist in Resources */ = {isa = PBXBuildFile; fileRef = 528776181BF27D9500CB0090 /* Test.plist */; };
@@ -433,6 +436,9 @@
 		0383A1741D2E558A0052E5D1 /* TestNSStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNSStream.swift; sourceTree = "<group>"; };
 		22B9C1E01C165D7A00DECFF9 /* TestNSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNSDate.swift; sourceTree = "<group>"; };
 		294E3C1C1CC5E19300E4F44C /* TestNSAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNSAttributedString.swift; sourceTree = "<group>"; };
+		2C52BB471D66963900427E48 /* CFUnitFormatter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CFUnitFormatter.c; path = CoreFoundation/Measurement.subproj/CFUnitFormatter.c; sourceTree = "<group>"; };
+		2C52BB481D66963900427E48 /* CFUnitFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CFUnitFormatter.h; path = CoreFoundation/Measurement.subproj/CFUnitFormatter.h; sourceTree = "<group>"; };
+		2C52BB4B1D66C61C00427E48 /* CFNumberFormatterInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFNumberFormatterInternal.h; sourceTree = "<group>"; };
 		2EBE67A31C77BF05006583D5 /* TestNSDateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNSDateFormatter.swift; sourceTree = "<group>"; };
 		400E22641C1A4E58007C5933 /* TestNSProcessInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNSProcessInfo.swift; sourceTree = "<group>"; };
 		4AE109261C17CCBF007367B5 /* TestNSIndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNSIndexPath.swift; sourceTree = "<group>"; };
@@ -859,6 +865,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C52BB461D6695DF00427E48 /* Measurement */ = {
+			isa = PBXGroup;
+			children = (
+				2C52BB471D66963900427E48 /* CFUnitFormatter.c */,
+				2C52BB481D66963900427E48 /* CFUnitFormatter.h */,
+			);
+			name = Measurement;
+			sourceTree = "<group>";
+		};
 		5B5D88531BBC938800234F36 = {
 			isa = PBXGroup;
 			children = (
@@ -1026,6 +1041,7 @@
 				5B5D88AD1BBC974700234F36 /* CFLocaleIdentifier.c */,
 				5B5D88AE1BBC974700234F36 /* CFLocaleInternal.h */,
 				5B5D89121BBC9C3400234F36 /* CFNumberFormatter.c */,
+				2C52BB4B1D66C61C00427E48 /* CFNumberFormatterInternal.h */,
 				5B5D89111BBC9C3400234F36 /* CFNumberFormatter.h */,
 				5B5D89A91BBDC11100234F36 /* CFLocaleKeys.c */,
 				5BDC3F191BCC440100ED97BB /* CFICULogging.h */,
@@ -1357,6 +1373,7 @@
 				5B5D88761BBC955900234F36 /* Collections */,
 				5B5D88A31BBC96FD00234F36 /* Error */,
 				5B5D88AA1BBC972A00234F36 /* Locale */,
+				2C52BB461D6695DF00427E48 /* Measurement */,
 				5B5D88B71BBC97C000234F36 /* NumberDate */,
 				5B5D88F91BBC9B8100234F36 /* Parsing */,
 				5B5D88E41BBC9B2D00234F36 /* PlugIn */,
@@ -1650,6 +1667,7 @@
 				5B7C8ACF1BEA80FC00C5B690 /* CFDate.h in Headers */,
 				5B7C8AC51BEA80FC00C5B690 /* CFBitVector.h in Headers */,
 				5B7C8AEA1BEA81AC00C5B690 /* CFICULogging.h in Headers */,
+				2C52BB4A1D66963900427E48 /* CFUnitFormatter.h in Headers */,
 				5B7C8AF61BEA81AC00C5B690 /* CFStringEncodingConverter.h in Headers */,
 				5B7C8ADE1BEA80FC00C5B690 /* CFCharacterSet.h in Headers */,
 				5B7C8ACB1BEA80FC00C5B690 /* CFCalendar.h in Headers */,
@@ -1682,6 +1700,7 @@
 				5B7C8AD31BEA80FC00C5B690 /* CFXMLNode.h in Headers */,
 				5B7C8AC21BEA80FC00C5B690 /* CFArray.h in Headers */,
 				5B7C8AFD1BEA81AC00C5B690 /* CFUnicodePrecomposition.h in Headers */,
+				2C52BB4C1D66C61C00427E48 /* CFNumberFormatterInternal.h in Headers */,
 				5B7C8ADB1BEA80FC00C5B690 /* CFRunLoop.h in Headers */,
 				5B7C8AFC1BEA81AC00C5B690 /* CFUnicodeDecomposition.h in Headers */,
 				5B7C8AF41BEA81AC00C5B690 /* CFCharacterSetPriv.h in Headers */,
@@ -2035,6 +2054,7 @@
 				5B7C8AB61BEA801700C5B690 /* CFUnicodeDecomposition.c in Sources */,
 				5B7C8A881BEA7FDB00C5B690 /* CFLocaleIdentifier.c in Sources */,
 				5B7C8AB01BEA801700C5B690 /* CFBuiltinConverters.c in Sources */,
+				2C52BB491D66963900427E48 /* CFUnitFormatter.c in Sources */,
 				5B7C8A761BEA7FCE00C5B690 /* CFSortFunctions.c in Sources */,
 				5B2B59831C24D00C00271109 /* CFSocketStream.c in Sources */,
 				5B7C8A941BEA7FEC00C5B690 /* CFXMLParser.c in Sources */,

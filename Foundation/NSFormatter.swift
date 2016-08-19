@@ -36,10 +36,10 @@ extension Formatter {
      */
 
     public enum UnitStyle : Int {
-        
-        case short
-        case medium
-        case long
+        case numeric // UAMEASFMT_WIDTH_NUMERIC
+        case short  // UAMEASFMT_WIDTH_NARROW
+        case medium // UAMEASFMT_WIDTH_SHORT
+        case long // UAMEASFMT_WIDTH_WIDE
     }
 }
 

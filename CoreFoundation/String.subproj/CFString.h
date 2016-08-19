@@ -840,6 +840,9 @@ CF_INLINE void CFStringInitInlineBuffer(CFStringRef str, CFStringInlineBuffer *b
     buf->bufferedRangeStart = buf->bufferedRangeEnd = 0;
 }
 
+CF_EXPORT  void myShow(CFStringRef aString);
+const char * MYCFStringCopyUTF8String(CFStringRef aString) ;
+
 CF_INLINE UniChar CFStringGetCharacterFromInlineBuffer(CFStringInlineBuffer *buf, CFIndex idx) {
     if (idx < 0 || idx >= buf->rangeToBuffer.length) return 0;
     if (buf->directUniCharBuffer) return buf->directUniCharBuffer[idx + buf->rangeToBuffer.location];
@@ -879,6 +882,8 @@ CF_INLINE Boolean CFStringIsSurrogateLowCharacter(UniChar character) {
 CF_INLINE UTF32Char CFStringGetLongCharacterForSurrogatePair(UniChar surrogateHigh, UniChar surrogateLow) {
     return (UTF32Char)(((surrogateHigh - 0xD800UL) << 10) + (surrogateLow - 0xDC00UL) + 0x0010000UL);
 }
+
+
 
 // Maps a UTF-32 character to a pair of UTF-16 surrogate characters. The buffer pointed by surrogates has to have space for at least 2 UTF-16 characters. Returns true if mapped to a surrogate pair.
 CF_INLINE Boolean CFStringGetSurrogatePairForLongCharacter(UTF32Char character, UniChar *surrogates) {

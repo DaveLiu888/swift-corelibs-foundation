@@ -84,7 +84,7 @@
 #include <CoreFoundation/CFSocket.h>
 #include <CoreFoundation/CFMachPort.h>
 #include <CoreFoundation/CFAttributedString.h>
-
+#include <CoreFoundation/CFUnitFormatter.h>
 #include <CoreFoundation/CFURLPriv.h>
 #include <CoreFoundation/CFURLComponents.h>
 #include <CoreFoundation/CFRunArray.h>

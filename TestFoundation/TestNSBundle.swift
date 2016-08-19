@@ -7,7 +7,7 @@
 // See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
 //
 
-
+import CoreFoundation
 
 #if DEPLOYMENT_RUNTIME_OBJC || os(Linux)
     import Foundation
@@ -35,9 +35,12 @@ class TestNSBundle : XCTestCase {
         ]
     }
     
+    
+    
     func test_paths() {
-        let bundle = Bundle.main
+
         
+        let bundle = Bundle.main
         // bundlePath
         XCTAssert(!bundle.bundlePath.isEmpty)
         XCTAssertEqual(bundle.bundleURL.path, bundle.bundlePath)

@@ -9,6 +9,7 @@
 
 import CoreFoundation
 
+
 #if os(OSX) || os(iOS)
 internal extension UInt {
     init(_ status: CFStreamStatus) {
@@ -136,6 +137,17 @@ open class InputStream: Stream {
         return CFReadStreamHasBytesAvailable(_stream)
     }
     
+    open var some:String {
+        
+        let r = CFUnitFormatterCreate(kCFAllocatorDefault, Locale.current._cfObject, CFUnitFormatterStyle.mediumStyle, CFNumberFormatterStyle.decimalStyle)
+        
+        [0,1,2,3,4,5,10, 11.2].forEach{
+            let str  = CFReadStreamGetPluralForm(Double(NSNumber(value:$0)), Locale(identifier:"jp")._cfObject)
+            print("#####> \(str)")
+            
+        }
+        return ""
+    }
     public init(data: Data) {
         _stream = CFReadStreamCreateWithData(kCFAllocatorSystemDefault, data._cfObject)
     }

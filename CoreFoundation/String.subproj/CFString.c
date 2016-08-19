@@ -2027,6 +2027,7 @@ void CFStringGetCharacters(CFStringRef str, CFRange range, UniChar *buffer) {
     CF_OBJC_FUNCDISPATCHV(__kCFStringTypeID, void, (NSString *)str, getCharacters:(unichar *)buffer range:NSMakeRange(range.location, range.length));
 
     __CFAssertIsString(str);
+    myShow(str);
     __CFAssertRangeIsInStringBounds(str, range.location, range.length);
     __CFStringGetCharactersGuts(str, range, buffer, (const uint8_t *)__CFStrContents(str));
 }
@@ -2082,10 +2083,29 @@ ConstStringPtr CFStringGetPascalStringPtr (CFStringRef str, CFStringEncoding enc
     }
     return NULL;
 }
-
-
+    
+void myShow(CFStringRef aString){
+    char * s = MYCFStringCopyUTF8String(aString);
+    printf("Printing few things = %s \n", s);
+}
+    
+const char * MYCFStringCopyUTF8String(CFStringRef aString) {
+    if (aString == NULL) {
+        return NULL;
+    }
+    
+    CFIndex length = CFStringGetLength(aString);
+    CFIndex maxSize =
+    CFStringGetMaximumSizeForEncoding(length, kCFStringEncodingUTF8) + 1;
+    char *buffer = (char *)malloc(maxSize);
+    if (CFStringGetCString(aString, buffer, maxSize,
+                           kCFStringEncodingUTF8)) {
+        return buffer;
+    }
+    return NULL;
+}
 const char * CFStringGetCStringPtr(CFStringRef str, CFStringEncoding encoding) {
-
+  
     if (encoding != __CFStringGetEightBitStringEncoding() && (kCFStringEncodingASCII != __CFStringGetEightBitStringEncoding() || !__CFStringEncodingIsSupersetOfASCII(encoding))) return NULL;
     // ??? Also check for encoding = SystemEncoding and perhaps bytes are all ASCII?
 

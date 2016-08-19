@@ -294,6 +294,8 @@ CFStreamError CFReadStreamGetError(CFReadStreamRef stream);
 CF_EXPORT
 CFStreamError CFWriteStreamGetError(CFWriteStreamRef stream);
 
+CF_EXPORT
+CFStringRef CFReadStreamGetPluralForm(double value, CFLocaleRef locale);
 
 CF_EXTERN_C_END
 CF_IMPLICIT_BRIDGING_DISABLED

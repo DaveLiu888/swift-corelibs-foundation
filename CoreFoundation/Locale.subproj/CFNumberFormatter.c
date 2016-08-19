@@ -75,6 +75,12 @@ static const CFRuntimeClass __CFNumberFormatterClass = {
     __CFNumberFormatterCopyDescription
 };
 
+UNumberFormat CFNumberFormatterGetNumberFormat(CFNumberFormatterRef ref) {
+    __CFGenericValidateType(ref, CFNumberFormatterGetTypeID());
+    CFAssert(ref->_nf, __kCFLogAssertion, "CFNumberFormatterRef nil %d ", __PRETTY_FUNCTION__, CFNumberFormatterGetTypeID());
+    return ref->_nf;
+}
+
 CFTypeID CFNumberFormatterGetTypeID(void) {
     static dispatch_once_t initOnce = 0;
     dispatch_once(&initOnce, ^{ __kCFNumberFormatterTypeID = _CFRuntimeRegisterClass(&__CFNumberFormatterClass); });

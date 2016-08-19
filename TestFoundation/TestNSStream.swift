@@ -33,11 +33,13 @@ class TestNSStream : XCTestCase {
     }
     
     func test_InputStreamWithData(){
+        
         let message: NSString = "Hello, playground"
         let messageData: Data = message.data(using: String.Encoding.utf8.rawValue)!
         let dataStream: InputStream = InputStream(data: messageData)
         XCTAssertEqual(Stream.Status.notOpen, dataStream.streamStatus)
         dataStream.open()
+        let a = dataStream.some
         XCTAssertEqual(Stream.Status.open, dataStream.streamStatus)
         var buffer = [UInt8](repeating: 0, count: 20)
         if dataStream.hasBytesAvailable {
@@ -199,6 +201,7 @@ class TestNSStream : XCTestCase {
     }
 
     func test_outputStreamHasSpaceAvailable() {
+        
         let buffer = Array<UInt8>(repeating: 0, count: 12)
         var myString = "Welcome To Hello world  !"
         let encodedData = [UInt8](myString.utf8)

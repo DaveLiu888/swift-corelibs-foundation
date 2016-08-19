@@ -86,6 +86,7 @@
 #define __cficu_unum_getSymbol unum_getSymbol
 #define __cficu_unum_getTextAttribute unum_getTextAttribute
 #define __cficu_unum_open unum_open
+
 #define __cficu_unum_parse unum_parse
 #define __cficu_unum_parseDecimal unum_parseDecimal
 #define __cficu_unum_setAttribute unum_setAttribute
@@ -101,5 +102,5 @@
 // unum
 #define __cficu_unum_setContext unum_setContext
 #define __cficu_unum_getContext unum_getContext
-
+#define __cficu_uameasfmt_open uameasfmt_open
 #endif
