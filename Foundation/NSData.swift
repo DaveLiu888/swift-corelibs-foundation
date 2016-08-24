@@ -164,11 +164,11 @@ open class NSData : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
         if url.isFileURL {
             try self.init(contentsOfFile: url.path, options: readOptionsMask)
         } else {
-            let session = URLSession(configuration: URLSessionConfiguration.defaultSessionConfiguration())
+            let session = URLSession(configuration: URLSessionConfiguration.default)
             let cond = NSCondition()
             var resError: NSError?
             var resData: Data?
-            let task = session.dataTaskWithURL(url, completionHandler: { (data: Data?, response: URLResponse?, error: NSError?) -> Void in
+            let task = session.dataTask(with: url, completionHandler: { (data: Data?, response: URLResponse?, error: NSError?) -> Void in
                 resData = data
                 resError = error
                 cond.broadcast()
@@ -850,10 +850,6 @@ open class NSData : NSObject, NSCopying, NSMutableCopying, NSSecureCoding {
 extension NSData : _CFBridgable, _SwiftBridgable {
     typealias SwiftType = Data
     internal var _swiftObject: SwiftType { return Data(referencing: self) }
-    
-    public func bridge() -> Data {
-        return _swiftObject
-    }
 }
 
 extension Data : _NSBridgable, _CFBridgable {
@@ -861,10 +857,6 @@ extension Data : _NSBridgable, _CFBridgable {
     typealias NSType = NSData
     internal var _cfObject: CFType { return _nsObject._cfObject }
     internal var _nsObject: NSType { return _bridgeToObjectiveC() }
-    
-    public func bridge() -> NSData {
-        return _nsObject
-    }
 }
 
 extension CFData : _NSBridgable, _SwiftBridgable {
